@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
@@ -6,12 +5,8 @@ import { Send } from "lucide-react";
 import React from "react";
 
 const contactNumbers = [
-  { region: "America", phone: "+1 (650) 870 2051" },
-  { region: "Latin America", phone: "+1 (650) 260 6552" },
-  { region: "Europe", phone: "+32 2 616 80 02" },
-  { region: "Africa", phone: "+254 207 640 404" },
-  { region: "Middle East", phone: "+971 4 498 7800" },
-  { region: "Asia", phone: "+91 79 40 500 100" },
+  { region: "Support", phone: "9555054886" },
+  { region: "Sales", phone: "9129560445" },
 ];
 
 const ContactUs = () => {
