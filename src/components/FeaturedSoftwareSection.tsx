@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const softwareList = [
   { name: "Accounting", icon: "💹" },
@@ -58,7 +59,7 @@ const FeaturedSoftwareSection = () => (
                 mb-3 text-3xl md:text-4xl
                 border border-gray-200
               "
-              aria-label={item.name + ' icon'}
+              aria-label={item.name + " icon"}
             >
               {item.icon}
             </div>
@@ -67,6 +68,11 @@ const FeaturedSoftwareSection = () => (
             </span>
           </div>
         ))}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <Button size="lg" className="px-8 py-4 text-base rounded-lg shadow-md">
+          Explore me
+        </Button>
       </div>
     </div>
   </section>
