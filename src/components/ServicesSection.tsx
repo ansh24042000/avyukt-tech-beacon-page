@@ -1,5 +1,5 @@
 
-import { Book, Check, List, FileText, ECommerce, Image, Home } from "lucide-react";
+import { Book, Check, List, FileText, ShoppingCart, Image, Home } from "lucide-react";
 import { ReactNode } from "react";
 
 type Service = {
@@ -40,7 +40,7 @@ const services: Service[] = [
   },
   {
     title: "E-commerce Platform Integration",
-    icon: <ECommerce className="w-8 h-8 text-primary" />,
+    icon: <ShoppingCart className="w-8 h-8 text-primary" />,   {/* Fixed icon */}
     description:
       "Connect your business to leading online stores and manage your digital presence.",
     link: "#",
@@ -88,3 +88,4 @@ const ServicesSection = () => (
 );
 
 export default ServicesSection;
+
