@@ -11,7 +11,7 @@ import FeaturedSoftwareSection from "@/components/FeaturedSoftwareSection";
 const Index = () => {
   return (
     <main id="top" className="min-h-screen bg-muted">
-      <Header />
+      {/* Header removed: Now handled globally in App.tsx */}
       <HeroSection />
       <FeaturedSoftwareSection />
       <ServicesSection />
