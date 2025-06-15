@@ -7,12 +7,14 @@ import ContactFormSection from "@/components/ContactFormSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import FeaturedSoftwareSection from "@/components/FeaturedSoftwareSection";
+import ECommerceSolutionsSection from "@/components/ECommerceSolutionsSection";
 
 const Index = () => {
   return (
     <main id="top" className="min-h-screen bg-muted">
       {/* Header removed: Now handled globally in App.tsx */}
       <HeroSection />
+      <ECommerceSolutionsSection />
       <FeaturedSoftwareSection />
       <ServicesSection />
       <WhyChooseUsSection />
