@@ -37,6 +37,15 @@ const Header = () => {
             className="font-semibold"
             asChild
           >
+            <Link to="/services">
+              Services
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            className="font-semibold"
+            asChild
+          >
             <Link to="/contact">
               Contact Us
             </Link>
@@ -48,4 +57,3 @@ const Header = () => {
 };
 
 export default Header;
-
