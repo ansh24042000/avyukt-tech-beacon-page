@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,23 +27,16 @@ const Header = () => {
           <Button
             variant="ghost"
             className="font-semibold"
-            onClick={() => {
-              // Scroll to About Us section if exists
-              const aboutSection = document.getElementById('about');
-              if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: "smooth" });
-              } else {
-                navigate("/#about");
-              }
-            }}
+            asChild
           >
-            About Us
+            <Link to="/about">
+              About Us
+            </Link>
           </Button>
           <Button
             variant="ghost"
             className="font-semibold"
             onClick={() => {
-              // Scroll to Contact section if exists
               const contactSection = document.getElementById('contact');
               if (contactSection) {
                 contactSection.scrollIntoView({ behavior: "smooth" });
