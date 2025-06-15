@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import ECommerceSolutionsSection from "@/components/ECommerceSolutionsSection";
-import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 
 const softwares = [
   {
@@ -99,10 +98,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Insert E-Commerce Solutions Section just above Why Choose Us */}
       <ECommerceSolutionsSection />
-
-      <WhyChooseUsSection />
     </main>
   );
 };
