@@ -1,10 +1,9 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const navigate = useNavigate();
-
   return (
     <header className="w-full sticky top-0 bg-white z-50 border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto flex items-center justify-between py-3 px-4">
@@ -36,16 +35,11 @@ const Header = () => {
           <Button
             variant="ghost"
             className="font-semibold"
-            onClick={() => {
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: "smooth" });
-              } else {
-                navigate("/#contact");
-              }
-            }}
+            asChild
           >
-            Contact Us
+            <Link to="/contact">
+              Contact Us
+            </Link>
           </Button>
         </div>
       </nav>
@@ -54,3 +48,4 @@ const Header = () => {
 };
 
 export default Header;
+
