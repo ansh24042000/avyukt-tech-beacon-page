@@ -1,15 +1,6 @@
-
 import { Linkedin, Instagram, Mail, Phone, Home, Globe, Github, Smartphone, MessageCircle } from "lucide-react";
 
 const footerLinks = [
-  {
-    heading: "Community",
-    links: [
-      { name: "Tutorials", href: "#" },
-      { name: "Documentation", href: "#" },
-      { name: "Forum", href: "#" },
-    ],
-  },
   {
     heading: "Services",
     links: [
@@ -34,21 +25,12 @@ const footerLinks = [
       { name: "Security", href: "#" },
     ],
   },
-  {
-    heading: "Open Source",
-    links: [
-      { name: "Download", href: "#" },
-      { name: "Github", href: "https://github.com/" },
-      { name: "Runbot", href: "#" },
-      { name: "Translations", href: "#" },
-    ],
-  },
 ];
 
 const Footer = () => (
   <footer className="bg-black text-white py-12 border-t border-gray-800">
-    <div className="container px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-      {/* Desktop: Four link columns */}
+    <div className="container px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {/* Desktop: Two link columns (Community and Open Source removed) */}
       {footerLinks.map(section => (
         <div key={section.heading} className="flex flex-col gap-2">
           <div className="font-bold mb-2">{section.heading}</div>
