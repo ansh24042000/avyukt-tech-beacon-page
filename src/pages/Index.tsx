@@ -1,3 +1,5 @@
+
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
@@ -9,6 +11,7 @@ import FeaturedSoftwareSection from "@/components/FeaturedSoftwareSection";
 const Index = () => {
   return (
     <main id="top" className="min-h-screen bg-muted">
+      <Header />
       <HeroSection />
       <FeaturedSoftwareSection />
       <ServicesSection />
