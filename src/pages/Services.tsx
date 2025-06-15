@@ -35,7 +35,7 @@ const softwares = [
     learnMore: "#",
   },
   {
-    name: "E-commerce Platform Integration",
+    name: "E-commerce Platform",
     description:
       "Connect your business to leading online stores and manage your digital presence.",
     image:
