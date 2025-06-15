@@ -31,11 +31,11 @@ const footerLinks = [
 const Footer = () => (
   <footer className="bg-black text-white py-12 border-t border-gray-800">
     <div className="container px-4 mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* Group "Services" and "About us" closer together */}
-        <div className="flex flex-col sm:flex-row gap-10 sm:gap-16 lg:gap-8">
+      <div className="flex flex-col lg:flex-row justify-between gap-10">
+        {/* Left: Services and About us */}
+        <div className="flex flex-row gap-14 lg:gap-20">
           {footerLinks.map(section => (
-            <div key={section.heading} className="flex flex-col gap-2 min-w-[150px]">
+            <div key={section.heading} className="flex flex-col gap-2 min-w-[140px]">
               <div className="font-bold mb-2">{section.heading}</div>
               {section.links.map(link =>
                 <a
@@ -51,14 +51,13 @@ const Footer = () => (
             </div>
           ))}
         </div>
-        {/* Details on the right */}
-        <div className="mt-8 lg:mt-0 lg:col-span-1 flex flex-col gap-4 items-start lg:items-end text-xs">
-          <div className="flex items-center gap-2 text-xs mb-2">
+        {/* Right: Details */}
+        <div className="flex flex-col gap-3 items-start lg:items-end text-xs w-full lg:w-auto mt-10 lg:mt-0">
+          <div className="flex items-center gap-2 text-xs">
             <Globe className="w-4 h-4 text-accent" />
             <span>English</span>
           </div>
-          <hr className="border-t border-gray-700 my-2 w-full lg:w-5/6" />
-          <div className="text-xs opacity-80 leading-relaxed mb-2 max-w-xs text-left lg:text-right">
+          <div className="text-xs opacity-80 leading-relaxed max-w-xs text-left lg:text-right mb-2">
             Avyukt Core Technology delivers intelligent software solutions for modern businesses. We offer CRM, ERP, eCommerce, Accounting, Inventory & more—integrated and easy to use.
           </div>
           <div className="flex gap-2 text-xs text-gray-400 items-start lg:justify-end">
@@ -104,3 +103,4 @@ const Footer = () => (
 );
 
 export default Footer;
+
