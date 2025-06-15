@@ -31,11 +31,10 @@ interface ContactFormDialogProps {
 }
 
 interface FormData {
-  name: string;
+  fullName: string;
+  phoneNumber: string;
   email: string;
-  phone: string;
-  company?: string;
-  message: string;
+  message?: string;
 }
 
 const ContactFormDialog = ({ trigger, formType, title, description }: ContactFormDialogProps) => {
@@ -44,24 +43,25 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
 
   const form = useForm<FormData>({
     defaultValues: {
-      name: "",
+      fullName: "",
+      phoneNumber: "",
       email: "",
-      phone: "",
-      company: "",
       message: "",
     },
   });
 
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
+    console.log("Form submitted:", data);
+    
     // Simulate form submission
     setTimeout(() => {
       setSubmitting(false);
       setOpen(false);
       form.reset();
       toast({
-        title: "Form Submitted Successfully!",
-        description: `Thank you for your ${formType.toLowerCase()} request. We'll get back to you soon.`,
+        title: "Thank you for reaching out!",
+        description: "We've received your message and our team will get in touch with you shortly.",
       });
     }, 1500);
   };
@@ -71,98 +71,29 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="space-y-3">
           <DialogTitle className="text-2xl font-bold text-primary">{title}</DialogTitle>
-          <DialogDescription className="text-base">
+          <DialogDescription className="text-base text-muted-foreground">
             {description}
           </DialogDescription>
         </DialogHeader>
         
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="name"
-                rules={{ required: "Name is required" }}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name *</FormLabel>
-                    <FormControl>
-                      <Input {...field} disabled={submitting} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="email"
-                rules={{ 
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid email address"
-                  }
-                }}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email *</FormLabel>
-                    <FormControl>
-                      <Input type="email" {...field} disabled={submitting} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="phone"
-                rules={{ required: "Phone number is required" }}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number *</FormLabel>
-                    <FormControl>
-                      <Input type="tel" {...field} disabled={submitting} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="company"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company/Organization</FormLabel>
-                    <FormControl>
-                      <Input {...field} disabled={submitting} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
-              name="message"
-              rules={{ required: "Message is required" }}
+              name="fullName"
+              rules={{ required: "Full name is required" }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message *</FormLabel>
+                  <FormLabel className="text-sm font-medium text-gray-700">Full Name *</FormLabel>
                   <FormControl>
-                    <Textarea 
+                    <Input 
                       {...field} 
-                      rows={4} 
-                      placeholder={`Please describe your ${formType.toLowerCase()} requirements...`}
-                      disabled={submitting} 
+                      placeholder="Enter your full name"
+                      disabled={submitting}
+                      className="h-11 bg-white border-gray-300 focus:border-primary focus:ring-primary"
                     />
                   </FormControl>
                   <FormMessage />
@@ -170,22 +101,103 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
               )}
             />
 
-            <div className="flex justify-end space-x-4 pt-4">
-              <Button 
-                type="button" 
-                variant="outline" 
-                onClick={() => setOpen(false)}
-                disabled={submitting}
-              >
-                Cancel
-              </Button>
-              <Button 
-                type="submit" 
-                disabled={submitting}
-                className="min-w-[120px]"
-              >
-                {submitting ? "Submitting..." : "Submit Request"}
-              </Button>
+            <FormField
+              control={form.control}
+              name="phoneNumber"
+              rules={{ 
+                required: "Phone number is required",
+                pattern: {
+                  value: /^[0-9+\-\s()]{7,15}$/,
+                  message: "Please enter a valid phone number"
+                }
+              }}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium text-gray-700">Phone Number *</FormLabel>
+                  <FormControl>
+                    <Input 
+                      {...field} 
+                      type="tel"
+                      placeholder="Enter your phone number"
+                      disabled={submitting}
+                      className="h-11 bg-white border-gray-300 focus:border-primary focus:ring-primary"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              rules={{ 
+                required: "Email address is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Please enter a valid email address"
+                }
+              }}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium text-gray-700">Email Address *</FormLabel>
+                  <FormControl>
+                    <Input 
+                      {...field} 
+                      type="email"
+                      placeholder="Enter your email address"
+                      disabled={submitting}
+                      className="h-11 bg-white border-gray-300 focus:border-primary focus:ring-primary"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium text-gray-700">Message</FormLabel>
+                  <FormControl>
+                    <Textarea 
+                      {...field} 
+                      rows={4} 
+                      placeholder="Tell us more about your requirements or any questions you have..."
+                      disabled={submitting}
+                      className="bg-white border-gray-300 focus:border-primary focus:ring-primary resize-none"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <div className="border-t pt-4">
+              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                We'd love to hear from you! Fill out the form below and our team will get in touch with you shortly.
+              </p>
+              
+              <div className="flex justify-end space-x-3">
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={() => setOpen(false)}
+                  disabled={submitting}
+                  className="px-6"
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  type="submit" 
+                  disabled={submitting}
+                  className="min-w-[140px] bg-primary hover:bg-primary/90"
+                >
+                  {submitting ? "Sending..." : "Send Message"}
+                </Button>
+              </div>
             </div>
           </form>
         </Form>
