@@ -33,7 +33,11 @@ const AboutUs = () => {
             Want to learn more, collaborate, or join our growing team? Let’s build a brighter tech future together!
           </p>
           <Link to="/contact">
-            <Button className="mt-4 px-8 py-2 text-lg font-bold" size="lg">
+            <Button
+              className="mt-4 px-8 py-2 text-lg font-bold text-white"
+              size="lg"
+              variant="default"
+            >
               Contact Us
             </Button>
           </Link>
