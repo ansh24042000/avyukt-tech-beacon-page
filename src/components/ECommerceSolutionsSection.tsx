@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const ECommerceSolutionsSection = () => {
   return (
-    <section className="py-14 md:py-20 bg-muted">
+    <section className="py-14 md:py-20 bg-white">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Visual (left) */}
         <div className="w-full lg:w-1/2 flex justify-center">
