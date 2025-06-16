@@ -1,8 +1,6 @@
 
 import { ArrowDown, Book } from "lucide-react";
 import { Link } from "react-router-dom";
-import ContactFormDialog from "@/components/ContactFormDialog";
-import { Button } from "@/components/ui/button";
 
 const HeroSection = () => (
   <section className="relative overflow-hidden min-h-[520px] flex flex-col md:flex-row items-center py-12 md:py-20 gradient-purple text-white">
@@ -14,16 +12,9 @@ const HeroSection = () => (
         From ERP to all business management — Custom Software Tailored to Your Needs.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
-        <ContactFormDialog
-          trigger={
-            <Button className="rounded-lg bg-white text-primary font-bold px-7 py-3 shadow-lg hover:scale-105 transition-transform">
-              Get a Free Demo
-            </Button>
-          }
-          formType="Free Demo Request"
-          title="Request Your Free Demo"
-          description="Get a personalized demonstration of our software solutions. Our team will show you how our technology can transform your business operations."
-        />
+        <a href="#contact" className="rounded-lg bg-white text-primary font-bold px-7 py-3 shadow-lg hover:scale-105 transition-transform text-center">
+          Get a Free Demo
+        </a>
         <Link to="/services" className="flex items-center px-7 py-3 border-2 border-white rounded-lg text-white hover:bg-white hover:text-primary-dark transition-colors font-bold text-center">
           <Book className="w-5 h-5 mr-2" /> Explore Our Services
         </Link>
