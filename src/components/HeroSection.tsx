@@ -1,5 +1,6 @@
 
 import { ArrowDown, Book } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => (
   <section className="relative overflow-hidden min-h-[520px] flex flex-col md:flex-row items-center py-12 md:py-20 gradient-purple text-white">
@@ -14,9 +15,9 @@ const HeroSection = () => (
         <a href="#contact" className="rounded-lg bg-white text-primary font-bold px-7 py-3 shadow-lg hover:scale-105 transition-transform text-center">
           Get a Free Demo
         </a>
-        <a href="#services" className="flex items-center px-7 py-3 border-2 border-white rounded-lg text-white hover:bg-white hover:text-primary-dark transition-colors font-bold text-center">
+        <Link to="/services" className="flex items-center px-7 py-3 border-2 border-white rounded-lg text-white hover:bg-white hover:text-primary-dark transition-colors font-bold text-center">
           <Book className="w-5 h-5 mr-2" /> Explore Our Services
-        </a>
+        </Link>
       </div>
     </div>
     <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2 z-0">
