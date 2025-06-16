@@ -12,9 +12,9 @@ const HeroSection = () => (
         From ERP to all business management — Custom Software Tailored to Your Needs.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
-        <a href="#contact" className="rounded-lg bg-white text-primary font-bold px-7 py-3 shadow-lg hover:scale-105 transition-transform text-center">
+        <Link to="/contact" className="rounded-lg bg-white text-primary font-bold px-7 py-3 shadow-lg hover:scale-105 transition-transform text-center">
           Get a Free Demo
-        </a>
+        </Link>
         <Link to="/services" className="flex items-center px-7 py-3 border-2 border-white rounded-lg text-white hover:bg-white hover:text-primary-dark transition-colors font-bold text-center">
           <Book className="w-5 h-5 mr-2" /> Explore Our Services
         </Link>
