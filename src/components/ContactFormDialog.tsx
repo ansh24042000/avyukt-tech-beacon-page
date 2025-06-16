@@ -71,10 +71,10 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-white">
         <DialogHeader className="space-y-3">
-          <DialogTitle className="text-2xl font-bold text-primary">{title}</DialogTitle>
-          <DialogDescription className="text-base text-muted-foreground">
+          <DialogTitle className="text-2xl font-bold text-blue-800">{title}</DialogTitle>
+          <DialogDescription className="text-base text-blue-700">
             {description}
           </DialogDescription>
         </DialogHeader>
@@ -87,13 +87,13 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
               rules={{ required: "Full name is required" }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-gray-700">Full Name *</FormLabel>
+                  <FormLabel className="text-sm font-medium text-blue-800">Full Name *</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
                       placeholder="Enter your full name"
                       disabled={submitting}
-                      className="h-11 bg-white border-gray-300 focus:border-primary focus:ring-primary"
+                      className="h-11 bg-white border-blue-300 focus:border-blue-800 focus:ring-blue-800 text-blue-800 placeholder:text-blue-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -113,14 +113,14 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-gray-700">Phone Number *</FormLabel>
+                  <FormLabel className="text-sm font-medium text-blue-800">Phone Number *</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
                       type="tel"
                       placeholder="Enter your phone number"
                       disabled={submitting}
-                      className="h-11 bg-white border-gray-300 focus:border-primary focus:ring-primary"
+                      className="h-11 bg-white border-blue-300 focus:border-blue-800 focus:ring-blue-800 text-blue-800 placeholder:text-blue-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -140,14 +140,14 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
               }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-gray-700">Email Address *</FormLabel>
+                  <FormLabel className="text-sm font-medium text-blue-800">Email Address *</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
                       type="email"
                       placeholder="Enter your email address"
                       disabled={submitting}
-                      className="h-11 bg-white border-gray-300 focus:border-primary focus:ring-primary"
+                      className="h-11 bg-white border-blue-300 focus:border-blue-800 focus:ring-blue-800 text-blue-800 placeholder:text-blue-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -160,14 +160,14 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-gray-700">Message</FormLabel>
+                  <FormLabel className="text-sm font-medium text-blue-800">Message</FormLabel>
                   <FormControl>
                     <Textarea 
                       {...field} 
                       rows={4} 
                       placeholder="Tell us more about your requirements or any questions you have..."
                       disabled={submitting}
-                      className="bg-white border-gray-300 focus:border-primary focus:ring-primary resize-none"
+                      className="bg-white border-blue-300 focus:border-blue-800 focus:ring-blue-800 resize-none text-blue-800 placeholder:text-blue-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -175,8 +175,8 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
               )}
             />
 
-            <div className="border-t pt-4">
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+            <div className="border-t border-blue-200 pt-4">
+              <p className="text-sm text-blue-700 mb-4 leading-relaxed">
                 We'd love to hear from you! Fill out the form below and our team will get in touch with you shortly.
               </p>
               
@@ -186,14 +186,14 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
                   variant="outline" 
                   onClick={() => setOpen(false)}
                   disabled={submitting}
-                  className="px-6"
+                  className="px-6 border-blue-300 text-blue-800 hover:bg-blue-50"
                 >
                   Cancel
                 </Button>
                 <Button 
                   type="submit" 
                   disabled={submitting}
-                  className="min-w-[140px] bg-primary hover:bg-primary/90"
+                  className="min-w-[140px] bg-blue-800 hover:bg-blue-900 text-white"
                 >
                   {submitting ? "Sending..." : "Send Message"}
                 </Button>
