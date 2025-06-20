@@ -40,7 +40,7 @@ const services: Service[] = [
   },
   {
     title: "E-commerce Platform Integration",
-    icon: <ShoppingCart className="w-8 h-8 text-primary" />, // Fixed icon
+    icon: <ShoppingCart className="w-8 h-8 text-primary" />,
     description:
       "Connect your business to leading online stores and manage your digital presence.",
     link: "#",
