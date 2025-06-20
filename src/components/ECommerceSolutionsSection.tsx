@@ -17,7 +17,7 @@ const ECommerceSolutionsSection = () => {
         </div>
         {/* Text (right) */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-start">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Launch Your Own Amazon, Flipkart or Swiggy</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Launch Your Own Online Store</h2>
           <p className="text-gray-600 text-lg mb-6">
             Whether you run a restaurant, a retail store or a service brand, <span className="font-semibold text-accent">ACT</span> builds your dream online store — complete with custom features, payments, product showcase, tracking, and more.
           </p>
