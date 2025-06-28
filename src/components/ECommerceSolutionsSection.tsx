@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
+import ContactFormDialog from "@/components/ContactFormDialog";
 
 const ECommerceSolutionsSection = () => {
   return (
@@ -17,12 +18,26 @@ const ECommerceSolutionsSection = () => {
             <span className="font-semibold text-accent">ACT</span> delivers powerful solutions — built from scratch, within your budget, with the exact features you need.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button className="px-8 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-700">
-              Build My Software
-            </Button>
-            <Button variant="outline" className="px-8 py-3 text-lg font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-50">
-              Launch My Online Store
-            </Button>
+            <ContactFormDialog
+              trigger={
+                <Button className="px-8 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-700">
+                  Build My Software
+                </Button>
+              }
+              formType="Development Request"
+              title="Request Custom Development"
+              description="Tell us about your custom software development needs and we'll create a tailored solution for your business."
+            />
+            <ContactFormDialog
+              trigger={
+                <Button variant="outline" className="px-8 py-3 text-lg font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-50">
+                  Launch My Online Store
+                </Button>
+              }
+              formType="Development Request"
+              title="Request E-Commerce Development"
+              description="Let us build your dream online store with custom features, payments, product showcase, tracking, and more."
+            />
           </div>
         </div>
         
