@@ -15,42 +15,42 @@ const services: Service[] = [
     icon: <FileText className="w-8 h-8 text-primary" />,
     description:
       "An all-in-one platform to manage and automate business processes with full customization.",
-    link: "#",
+    link: "#contact",
   },
   {
     title: "Restaurant Management System",
     icon: <Home className="w-8 h-8 text-primary" />,
     description:
       "Smooth operations — from order to inventory—built for modern food businesses and chains.",
-    link: "#",
+    link: "#contact",
   },
   {
     title: "School & Education Mgmt. Software",
     icon: <Book className="w-8 h-8 text-primary" />,
     description:
       "Manage admissions, attendance, exams, and communication with easy to use tools.",
-    link: "#",
+    link: "#contact",
   },
   {
     title: "Retail & Billing Solutions",
     icon: <List className="w-8 h-8 text-primary" />,
     description:
       "Fast, reliable sales and billing system—ideal for retail businesses large or small.",
-    link: "#",
+    link: "#contact",
   },
   {
     title: "E-commerce Platform Integration",
     icon: <ShoppingCart className="w-8 h-8 text-primary" />,
     description:
       "Connect your business to leading online stores and manage your digital presence.",
-    link: "#",
+    link: "#contact",
   },
   {
     title: "Inventory & HRM Tools",
     icon: <Check className="w-8 h-8 text-primary" />,
     description:
       "Advanced tracking for your inventory and streamlined HR management in a single suite.",
-    link: "#",
+    link: "#contact",
   },
 ];
 
@@ -88,4 +88,3 @@ const ServicesSection = () => (
 );
 
 export default ServicesSection;
-
