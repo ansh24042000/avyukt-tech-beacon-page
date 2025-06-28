@@ -1,10 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { Send } from "lucide-react";
 import React from "react";
 import ContactFormDialog from "@/components/ContactFormDialog";
+import Footer from "@/components/Footer";
 
 const contactNumbers = [
   { region: "Support", phone: "9555054886" },
@@ -128,6 +128,7 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 };

@@ -1,5 +1,5 @@
-
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const softwares = [
   {
@@ -97,6 +97,8 @@ const Services = () => {
           ))}
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 };
