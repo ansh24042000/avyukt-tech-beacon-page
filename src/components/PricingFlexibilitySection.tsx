@@ -127,7 +127,7 @@ const PricingFlexibilitySection = () => {
               ))}
             </div>
             <Button asChild size="lg" className="px-8">
-              <Link to="/contact">Discuss My Budget</Link>
+              <a href="#contact">Discuss My Budget</a>
             </Button>
           </div>
         </div>
