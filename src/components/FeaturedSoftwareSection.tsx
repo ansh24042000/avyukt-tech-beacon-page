@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const softwareList = [
   { name: "Accounting", icon: "💹" },
@@ -70,8 +71,8 @@ const FeaturedSoftwareSection = () => (
         ))}
       </div>
       <div className="mt-10 flex justify-center">
-        <Button size="lg" className="px-8 py-4 text-base rounded-lg shadow-md">
-          Explore me
+        <Button asChild size="lg" className="px-8 py-4 text-base rounded-lg shadow-md">
+          <Link to="/services">Explore me</Link>
         </Button>
       </div>
     </div>
@@ -79,4 +80,3 @@ const FeaturedSoftwareSection = () => (
 );
 
 export default FeaturedSoftwareSection;
-

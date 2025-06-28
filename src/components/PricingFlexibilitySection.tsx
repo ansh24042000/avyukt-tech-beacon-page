@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const PricingFlexibilitySection = () => {
   const [budgetValue, setBudgetValue] = useState([50]); // Default to middle value
@@ -125,8 +126,8 @@ const PricingFlexibilitySection = () => {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="px-8">
-              Discuss My Budget
+            <Button asChild size="lg" className="px-8">
+              <Link to="/contact">Discuss My Budget</Link>
             </Button>
           </div>
         </div>
