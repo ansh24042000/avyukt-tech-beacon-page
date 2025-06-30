@@ -1,5 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const AboutUs = () => {
   return (
@@ -26,10 +28,10 @@ const AboutUs = () => {
             Our solutions are tailored to unique business needs, helping organizations boost productivity, delight customers, and grow fearlessly.
           </p>
           <p>
-            Driven by core values of <span className="font-semibold">Integrity, Innovation, and Collaboration</span>, we’re dedicated to delivering software that makes a difference for our clients – and for the people they serve.
+            Driven by core values of <span className="font-semibold">Integrity, Innovation, and Collaboration</span>, we're dedicated to delivering software that makes a difference for our clients – and for the people they serve.
           </p>
           <p>
-            Want to learn more, collaborate, or join our growing team? Let’s build a brighter tech future together!
+            Want to learn more, collaborate, or join our growing team? Let's build a brighter tech future together!
           </p>
           <Link to="/contact">
             <Button
@@ -42,6 +44,8 @@ const AboutUs = () => {
           </Link>
         </div>
       </section>
+      
+      <Footer />
     </main>
   );
 };

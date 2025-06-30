@@ -63,14 +63,18 @@ const Footer = () => (
           <div className="flex gap-2 text-xs text-gray-400 items-start lg:justify-end">
             <Home className="w-4 h-4 text-accent mt-0.5" />
             <span className="block">
-              22nd Floor, Cyber Heights,<br />
-              Tech City, Sector 135,<br />
-              Noida, Uttar Pradesh 201304, India
+              1st Floor, Vishambhar Sadan,<br />
+              Lakhanpur, Vikasnagar,<br />
+              Kanpur, UP, India
             </span>
           </div>
           <div className="flex items-center gap-2 text-xs text-gray-400 lg:justify-end">
             <Phone className="w-4 h-4 text-accent" />
-            <a href="tel:+919876543210" className="hover:underline">+91 98765 43210</a>
+            <span>
+              <a href="tel:+919555054886" className="hover:underline">9555054886</a>
+              {" / "}
+              <a href="tel:+919129560445" className="hover:underline">9129560445</a>
+            </span>
           </div>
           <div className="flex items-center gap-2 text-xs text-gray-400 lg:justify-end">
             <Mail className="w-4 h-4 text-accent" />
@@ -89,7 +93,7 @@ const Footer = () => (
             <a href="https://github.com/" aria-label="Github" target="_blank" rel="noopener noreferrer" className="hover:text-accent">
               <Github className="w-5 h-5" />
             </a>
-            <a href="tel:+919876543210" aria-label="Phone" className="hover:text-accent">
+            <a href="tel:+919555054886" aria-label="Phone" className="hover:text-accent">
               <Smartphone className="w-5 h-5" />
             </a>
           </div>
@@ -103,4 +107,3 @@ const Footer = () => (
 );
 
 export default Footer;
-

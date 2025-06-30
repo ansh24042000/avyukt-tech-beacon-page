@@ -1,139 +1,84 @@
-
-import { useState } from "react";
-import { Slider } from "@/components/ui/slider";
+import React from "react";
+import { Rocket, ShieldCheck, BarChart3, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
-const PricingFlexibilitySection = () => {
-  const [budgetValue, setBudgetValue] = useState([50]); // Default to middle value
+const features = [
+  {
+    title: "Scalable Architecture",
+    icon: <Rocket className="w-6 h-6 text-primary" />,
+    description:
+      "Our platform is built to scale with your business, handling increasing loads without compromising performance.",
+  },
+  {
+    title: "Data Security",
+    icon: <ShieldCheck className="w-6 h-6 text-primary" />,
+    description:
+      "We employ advanced security measures to protect your data, ensuring confidentiality and compliance.",
+  },
+  {
+    title: "Real-time Analytics",
+    icon: <BarChart3 className="w-6 h-6 text-primary" />,
+    description:
+      "Gain insights into your business with real-time analytics and customizable reports.",
+  },
+  {
+    title: "Custom Integrations",
+    icon: <Settings className="w-6 h-6 text-primary" />,
+    description:
+      "Seamlessly integrate our solutions with your existing systems for a unified workflow.",
+  },
+];
 
-  // Convert slider value (0-100) to actual budget range
-  const getBudgetAmount = (value: number) => {
-    // Linear interpolation between 10,000 and 1,000,000 (10 lakhs)
-    const minBudget = 10000;
-    const maxBudget = 1000000;
-    return Math.round(minBudget + (value / 100) * (maxBudget - minBudget));
-  };
-
-  const formatBudget = (amount: number) => {
-    if (amount >= 100000) {
-      return `₹${(amount / 100000).toFixed(1)} Lakhs`;
-    }
-    return `₹${(amount / 1000).toFixed(0)},000`;
-  };
-
-  const getFeatureLevel = (value: number) => {
-    if (value <= 33) {
-      return {
-        title: "Basic Features",
-        description: "Core functionality",
-        features: ["Essential modules", "Standard UI", "Basic support"]
-      };
-    } else if (value <= 66) {
-      return {
-        title: "Advanced Features", 
-        description: "Enhanced capabilities",
-        features: ["Custom modules", "Premium UI", "Priority support", "Integrations"]
-      };
-    } else {
-      return {
-        title: "Enterprise Suite",
-        description: "Full-scale solution",
-        features: ["Complete customization", "Enterprise UI", "24/7 support", "Full integrations", "Advanced analytics"]
-      };
-    }
-  };
-
-  const currentBudget = getBudgetAmount(budgetValue[0]);
-  const currentFeatures = getFeatureLevel(budgetValue[0]);
-
-  return (
-    <section className="py-16 md:py-24 bg-muted">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Your Budget. <span className="text-primary">Our Code.</span>
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Whether ₹10,000 or ₹10 lakhs — we shape the product to your money and your mind.
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          {/* Budget Slider Card */}
-          <div className="bg-white rounded-2xl shadow-card p-8 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <span className="text-2xl font-bold text-primary">₹10,000</span>
-              <span className="text-2xl font-bold text-primary">₹10 Lakhs+</span>
-            </div>
-            
-            <div className="mb-8">
-              <Slider
-                value={budgetValue}
-                onValueChange={setBudgetValue}
-                max={100}
-                step={1}
-                className="w-full"
-              />
-            </div>
-
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">
-                {formatBudget(currentBudget)}
+const PricingFlexibilitySection = () => (
+  <section
+    id="pricing"
+    className="bg-muted py-16 md:py-20"
+    style={{
+      borderTopLeftRadius: "8% 10vw",
+      borderTopRightRadius: "8% 10vw",
+    }}
+  >
+    <div className="container mx-auto px-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
+        Advanced Features
+      </h2>
+      <p className="mx-auto text-center mb-12 text-gray-500 md:w-2/3">
+        Our solutions offer extensive advanced features and we believe in fair, transparent pricing.
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-2xl p-8 shadow-card hover:shadow-lg transition-shadow duration-200 group"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-primary/10 p-3 rounded-lg">
+                {feature.icon}
               </div>
-              <div className="text-gray-600">Your Budget Range</div>
+              <h3 className="text-xl font-semibold text-gray-900">
+                {feature.title}
+              </h3>
             </div>
-          </div>
-
-          {/* Feature Levels */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {[
-              { title: "Basic Features", desc: "Core functionality", value: 16 },
-              { title: "Advanced Features", desc: "Enhanced capabilities", value: 50 },
-              { title: "Enterprise Suite", desc: "Full-scale solution", value: 83 }
-            ].map((level, index) => (
-              <div 
-                key={level.title}
-                className={`bg-white rounded-xl p-6 text-center transition-all duration-300 ${
-                  budgetValue[0] >= (index * 33) && budgetValue[0] <= ((index + 1) * 33 + 1)
-                    ? 'ring-2 ring-primary shadow-lg scale-105' 
-                    : 'shadow-card hover:shadow-lg'
-                }`}
-              >
-                <h3 className="font-semibold text-lg mb-2 text-gray-800">
-                  {level.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {level.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Current Feature Details */}
-          <div className="bg-white rounded-2xl shadow-card p-8 text-center">
-            <h3 className="text-2xl font-bold text-primary mb-3">
-              {currentFeatures.title}
-            </h3>
-            <p className="text-gray-600 mb-6">
-              {currentFeatures.description}
+            <p className="text-gray-600 leading-relaxed">
+              {feature.description}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-              {currentFeatures.features.map((feature, index) => (
-                <div key={index} className="flex items-center justify-center space-x-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-            <Button asChild size="lg" className="px-8">
-              <a href="#contact">Discuss My Budget</a>
-            </Button>
           </div>
-        </div>
+        ))}
       </div>
-    </section>
-  );
-};
+
+      <div className="mt-12 text-center">
+        <a href="#contact">
+          <Button 
+            size="lg" 
+            className="px-8 py-4 text-base rounded-lg shadow-md text-white font-bold bg-primary hover:bg-primary-dark"
+          >
+            Discuss My Budget
+          </Button>
+        </a>
+      </div>
+    </div>
+  </section>
+);
 
 export default PricingFlexibilitySection;
