@@ -4,40 +4,37 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const softwareList = [
-  { name: "Accounting", icon: "💹" },
-  { name: "Knowledge", icon: "📗" },
-  { name: "Sign", icon: "✍️" },
-  { name: "CRM", icon: "🤝" },
-  { name: "Studio", icon: "🛠️" },
-  { name: "Subscriptions", icon: "🔄" },
-  { name: "Rental", icon: "🔑" },
-  { name: "Point of Sale", icon: "🏪" },
-  { name: "Discuss", icon: "💬" },
-  { name: "Documents", icon: "📄" },
-  { name: "Project", icon: "✅" },
-  { name: "Timesheets", icon: "⏱️" },
-  { name: "Field Service", icon: "🛩️" },
-  { name: "Planning", icon: "🗓️" },
-  { name: "Helpdesk", icon: "🆘" },
-  { name: "Website", icon: "🌐" },
-  { name: "Social Marketing", icon: "💖" },
-  { name: "Email Marketing", icon: "📧" },
-  { name: "Purchase", icon: "💳" },
-  { name: "Inventory", icon: "📦" },
+  { name: "School Management", icon: "🎓" },
+  { name: "Restaurant Management System", icon: "🍽️" },
+  { name: "Digital Marketing", icon: "📱" },
+  { name: "E-commerce", icon: "🛒" },
   { name: "Manufacturing", icon: "🏭" },
+  { name: "Inventory", icon: "📦" },
   { name: "Sales", icon: "📊" },
   { name: "HR", icon: "👥" },
   { name: "Dashboard", icon: "📈" },
+  { name: "Purchase", icon: "💳" },
+  { name: "Website", icon: "🌐" },
+  { name: "CRM", icon: "🤝" },
+  { name: "Field Service", icon: "🛩️" },
+  { name: "Planning", icon: "🗓️" },
+  { name: "Helpdesk", icon: "🆘" },
+  { name: "Timesheets", icon: "⏱️" },
+  { name: "Point of Sale", icon: "🏪" },
+  { name: "Rental", icon: "🔑" },
+  { name: "Accounting", icon: "💹" },
+  { name: "Studio", icon: "🛠️" },
+  { name: "Project", icon: "✅" },
 ];
 
 const FeaturedSoftwareSection = () => (
   <section
     className="w-full relative z-10 bg-white py-12 md:py-16"
-    aria-label="Featured Software"
+    aria-label="Featured Services"
   >
     <div className="container mx-auto px-4">
       <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 text-center">
-        Featured Software
+        Featured Services
       </h2>
       <p className="mx-auto text-center mb-8 text-gray-500 md:w-2/3">
         Discover our most popular solutions, tailored for every need.
@@ -71,7 +68,7 @@ const FeaturedSoftwareSection = () => (
         ))}
       </div>
       <div className="mt-10 flex justify-center">
-        <Button asChild size="lg" className="px-8 py-4 text-base rounded-lg shadow-md">
+        <Button asChild size="lg" className="px-8 py-4 text-base rounded-lg shadow-md text-black hover:text-black">
           <Link to="/services">Explore me</Link>
         </Button>
       </div>
