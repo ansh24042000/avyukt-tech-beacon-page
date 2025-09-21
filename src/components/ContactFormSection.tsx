@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Mail, Phone } from "lucide-react";
+import { sendEmail, type FormData } from "@/utils/emailService";
 
 const options = [
   "ERP Software",
@@ -17,17 +18,44 @@ const ContactFormSection = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const emailData: FormData = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      service: formData.get('service') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      const success = await sendEmail(emailData);
+      
+      if (success) {
+        setSubmitted(true);
+        toast({
+          title: "Thank you!",
+          description: "Your message has been sent to Anshumansingh.0502280@gmail.com. We'll be in touch soon to arrange your free consultation.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send your message. Please try again or contact us directly at Anshumansingh.0502280@gmail.com.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
       toast({
-        title: "Thank you!",
-        description: "We'll be in touch soon to arrange your free consultation.",
+        title: "Error",
+        description: "Failed to send your message. Please try again or contact us directly at Anshumansingh.0502280@gmail.com.",
+        variant: "destructive",
       });
-    }, 1200);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -48,6 +76,7 @@ const ContactFormSection = () => {
                 </label>
                 <input
                   id="name"
+                  name="name"
                   required
                   type="text"
                   autoComplete="name"
@@ -61,6 +90,7 @@ const ContactFormSection = () => {
                 </label>
                 <input
                   id="email"
+                  name="email"
                   required
                   type="email"
                   autoComplete="email"
@@ -76,6 +106,7 @@ const ContactFormSection = () => {
                 </label>
                 <input
                   id="phone"
+                  name="phone"
                   type="tel"
                   required
                   pattern="^[0-9+ ]{7,18}$"
@@ -92,6 +123,7 @@ const ContactFormSection = () => {
                 </label>
                 <select
                   id="service"
+                  name="service"
                   required
                   className="w-full rounded-lg border-gray-300 px-4 py-2 bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
                   disabled={submitting || submitted}
@@ -114,6 +146,7 @@ const ContactFormSection = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={3}
                 required
                 className="w-full rounded-lg border-gray-300 px-4 py-2 bg-muted focus:outline-none focus:ring-2 focus:ring-primary"

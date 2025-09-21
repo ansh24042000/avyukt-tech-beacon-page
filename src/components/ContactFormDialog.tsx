@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { toast } from "@/hooks/use-toast";
+import { sendEmail } from "@/utils/emailService";
 
 interface ContactFormDialogProps {
   trigger: React.ReactNode;
@@ -52,18 +53,41 @@ const ContactFormDialog = ({ trigger, formType, title, description }: ContactFor
 
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
-    console.log("Form submitted:", data);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitting(false);
-      setOpen(false);
-      form.reset();
+    const emailData = {
+      name: data.fullName,
+      email: data.email,
+      phone: data.phoneNumber,
+      message: data.message || `Interest in ${formType}`,
+      service: formType,
+    };
+
+    try {
+      const success = await sendEmail(emailData);
+      
+      if (success) {
+        setOpen(false);
+        form.reset();
+        toast({
+          title: "Thank you for reaching out!",
+          description: "Your message has been sent to Anshumansingh.0502280@gmail.com. Our team will get in touch with you shortly.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send your message. Please try again or contact us directly at Anshumansingh.0502280@gmail.com.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
       toast({
-        title: "Thank you for reaching out!",
-        description: "We've received your message and our team will get in touch with you shortly.",
+        title: "Error",
+        description: "Failed to send your message. Please try again or contact us directly at Anshumansingh.0502280@gmail.com.",
+        variant: "destructive",
       });
-    }, 1500);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
